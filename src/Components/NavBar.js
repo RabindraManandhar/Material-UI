@@ -8,6 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
+import { directive } from "@babel/types";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,13 +25,13 @@ const useStyles = makeStyles(theme => ({
 
   sectionDesktop: {
     display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "flex"
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     }
   },
   sectionMobile: {
     display: "flex",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none"
     }
   }
