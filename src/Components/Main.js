@@ -12,7 +12,7 @@ import flower from "../img/flower.jpg";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    display: "inline-grid",
     margin: "0 1rem",
     padding: "2rem"
   },
@@ -27,9 +27,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CenteredGrid() {
-  const [spacing, setSpacing] = React.useState(2);
+const Main = props => {
   const classes = useStyles();
+  const [spacing, setSpacing] = React.useState(2);
 
   return (
     <div
@@ -40,8 +40,9 @@ export default function CenteredGrid() {
     >
       <Grid container spacing={2.5 * spacing}>
         {[0, 1, 2, 3, 4].map(value => (
-          <Grid item xs={3}>
-            <Grid key={value} item>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid key={value.id}>
+              {/* i have not specified any id so it results in error of unique key. */}
               <Card className={classes.card}>
                 <CardActionArea>
                   <CardMedia
@@ -81,4 +82,6 @@ export default function CenteredGrid() {
       </Grid>
     </div>
   );
-}
+};
+
+export default Main;
